@@ -1,0 +1,41 @@
+body{
+    background-image: url(Gemini_Generated_Image_ez9yquez9yquez9y.jpg);
+    background-size: 50dvh;
+}
+
+#board{
+    display: grid;
+        grid-template-columns: repeat(10, 1fr); /* Seven columns of equal width */
+        grid-template-rows: repeat(10, 1fr); /* Seven rows of equal height */
+        gap: 0px; /* Gap between grid items */
+        margin: auto; /* Center the grid container horizontally */
+        width: fit-content;
+        height: fit-content;
+        border: solid 1px black;
+}
+.boardSqure{
+    width: 9dvh;
+    height: 9dvh;
+    background-color: green;
+    border: solid 1px black;
+}
+.difficultyBttns{
+    display: grid;
+    gap: 5dvh;
+    position: absolute;
+    align-items: center;
+    left: 2dvh;
+    top: 20dvh;
+}
+.diffBttn{
+    font-size: 5dvh;
+    display: block;
+    height: fit-content;
+}
+#diffText{
+    font-size: 7dvh;
+    color: aliceblue;
+    position: absolute;
+    top: 5dvb;
+    left: 3dvh;
+}
