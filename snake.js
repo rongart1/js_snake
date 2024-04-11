@@ -6,7 +6,7 @@ let gameRunning = false;
 document.addEventListener('keydown', (key) => {
     switch (key.code) {
         case 'KeyD':
-            if (!moveLeft) {
+            if (!moveLeft&&!(lastMove=='left')) {
                 moveUp = false;
                 moveDown = false;
                 moveRigth = true;
@@ -14,7 +14,7 @@ document.addEventListener('keydown', (key) => {
 
             break;
         case 'KeyA':
-            if (!moveRigth) {
+            if (!moveRigth&&!(lastMove=='rigth')) {
                 moveLeft = true;
                 moveUp = false;
                 moveDown = false;
@@ -22,7 +22,7 @@ document.addEventListener('keydown', (key) => {
 
             break;
         case 'KeyS':
-            if (!moveUp) {
+            if (!moveUp&&!(lastMove=='up')) {
                 moveLeft = false;
                 moveDown = true;
                 moveRigth = false;
@@ -30,7 +30,7 @@ document.addEventListener('keydown', (key) => {
 
             break;
         case 'KeyW':
-            if (!moveDown) {
+            if (!moveDown&&!(lastMove=='down')) {
                 moveLeft = false;
                 moveUp = true;
                 moveRigth = false;
@@ -47,7 +47,7 @@ let col = 10
 let row = 10
 let speed = 250;
 let appleSpeed = 700;
-
+let lastMove ='rigth';
 const boardSize = row * col;
 for (let i = 0; i < boardSize; i++) {
     board.innerHTML += "<div class='boardSqure' id =" + i.toString() + "></div>"
@@ -59,22 +59,31 @@ function startGame() {
 
 
         if (moveRigth && gameRunning) {
-            if (!([9, 19, 29, 39, 49, 59, 69, 79, 89, 99].includes(x + y)))  //checks if next move within bound
+            if (!([9, 19, 29, 39, 49, 59, 69, 79, 89, 99].includes(x + y))){
                 x += 1;
+                lastMove='rigth';
+            }  //checks if next move within bound
+                
             else
                 gameLost();
 
         }
 
         if (moveLeft && gameRunning) {
-            if (!([0, 10, 20, 30, 40, 50, 60, 70, 80, 90].includes(x + y)))   //checks if next move within bound
+            if (!([0, 10, 20, 30, 40, 50, 60, 70, 80, 90].includes(x + y))){
+                lastMove='left';
                 x -= 1;
+            }   //checks if next move within bound
+                
             else
                 gameLost();
         }
         if (moveDown && gameRunning) {
-            if (x + y < 99) //checks if next move within bound
-                y += row;
+            if (x + y < 99){
+                 y += row;
+                 lastMove ='down'
+            } //checks if next move within bound
+               
 
             else
                 gameLost();
@@ -82,8 +91,11 @@ function startGame() {
 
         }
         if (moveUp && gameRunning) {
-            if (x + y > 9) //checks if next move within bound
+            if (x + y > 9){
                 y -= row;
+                lastMove='up';
+            } //checks if next move within bound
+                
 
             else
                 gameLost();
@@ -181,10 +193,15 @@ function restartGame() {
     y = 0;
     apple = null;
     prevPositonsArr = [];
-    snakeLength=0;
+    snakeLength=3;
+    clearInterval(IntervalId);
+    clearInterval(appleIntreval);
 
     moveRigth = true;
     moveLeft = false;
     moveUp = false;
     moveDown = false;
+
+    drawSnake();
+    eraseBoard();
 }// resets every thing
