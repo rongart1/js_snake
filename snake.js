@@ -46,7 +46,7 @@ let board = document.getElementById("board");
 let col = 10
 let row = 10
 let speed = 250;
-let appleSpeed = 700;
+let appleSpeed = 7000;
 let lastMove ='rigth';
 const boardSize = row * col;
 for (let i = 0; i < boardSize; i++) {
@@ -174,7 +174,7 @@ function gameLost() {//losing the game
     clearInterval(IntervalId);
     clearInterval(appleIntreval);
     gameRunning = false;
-    document.getElementById("gameEndText").innerHTML="you lost";
+    document.getElementById("gameEndText").style.display="inline-block";
 }
 
 function isSnakeOverlap() {//losing the game if snake overLaps
@@ -206,5 +206,5 @@ function restartGame() {
     drawSnake();
     eraseBoard();
 
-    document.getElementById("gameEndText").innerHTML="";
+    document.getElementById("gameEndText").style.display="none";
 }// resets every thing

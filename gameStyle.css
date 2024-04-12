@@ -1,25 +1,31 @@
-body{
+body {
     background-image: url(Gemini_Generated_Image_ez9yquez9yquez9y.jpg);
     background-size: 50dvh;
 }
 
-#board{
+#board {
     display: grid;
-        grid-template-columns: repeat(10, 1fr); /* Seven columns of equal width */
-        grid-template-rows: repeat(10, 1fr); /* Seven rows of equal height */
-        gap: 0px; /* Gap between grid items */
-        margin: auto; /* Center the grid container horizontally */
-        width: fit-content;
-        height: fit-content;
-        border: solid 1px black;
+    grid-template-columns: repeat(10, 1fr);
+    /* Seven columns of equal width */
+    grid-template-rows: repeat(10, 1fr);
+    /* Seven rows of equal height */
+    gap: 0px;
+    /* Gap between grid items */
+    margin: auto;
+    /* Center the grid container horizontally */
+    width: fit-content;
+    height: fit-content;
+    border: solid 1px black;
 }
-.boardSqure{
+
+.boardSqure {
     width: 9dvh;
     height: 9dvh;
     background-color: green;
     border: solid 1px black;
 }
-.difficultyBttns{
+
+.difficultyBttns {
     display: grid;
     gap: 5dvh;
     position: absolute;
@@ -27,27 +33,47 @@ body{
     left: 2dvh;
     top: 20dvh;
 }
-.diffBttn{
+
+.diffBttn {
     font-size: 5dvh;
     display: block;
     height: fit-content;
 }
-#diffText{
+
+#diffText {
     font-size: 7dvh;
     color: aliceblue;
     position: absolute;
     top: 5dvb;
     left: 3dvh;
 }
-#gameEndText{
+
+#gameEndText {
     z-index: 1000;
     position: absolute;
     left: 50%;
     top: 40%;
     display: inline-block;
     margin: 0;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     font-size: 15dvh;
     color: orange;
-    
+    animation-name: gameOver;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes gameOver {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
