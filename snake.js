@@ -208,3 +208,4 @@ function restartGame() {
 
     document.getElementById("gameEndText").style.display="none";
 }// resets every thing
+document.getElementById("gameEndText").style.display="none";
