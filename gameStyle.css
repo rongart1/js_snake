@@ -39,3 +39,15 @@ body{
     top: 5dvb;
     left: 3dvh;
 }
+#gameEndText{
+    z-index: 1000;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    display: inline-block;
+    margin: 0;
+    transform: translate(-50%,-50%);
+    font-size: 15dvh;
+    color: orange;
+    
+}

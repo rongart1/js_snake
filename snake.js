@@ -174,6 +174,7 @@ function gameLost() {//losing the game
     clearInterval(IntervalId);
     clearInterval(appleIntreval);
     gameRunning = false;
+    document.getElementById("gameEndText").innerHTML="you lost";
 }
 
 function isSnakeOverlap() {//losing the game if snake overLaps
@@ -204,4 +205,6 @@ function restartGame() {
 
     drawSnake();
     eraseBoard();
+
+    document.getElementById("gameEndText").innerHTML="";
 }// resets every thing
